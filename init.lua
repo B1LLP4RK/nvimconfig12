@@ -4,6 +4,9 @@ vim.g.mapleader = " "
 
 vim.pack.add({'https://github.com/folke/snacks.nvim'})
 Snacks = require('snacks')
+vim.pack.add({'https://github.com/folke/which-key.nvim'})
+WhichKey = require('which-key')
+
 Snacks.setup(
 	{
 		bigfile = { enabled = true },
@@ -126,3 +129,9 @@ vim.keymap.set("n",
 	end,
 	{desc = "Neovim News"}
 )
+vim.keymap.set("n",
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      {desc = "Buffer Local Keymaps (which-key)"})
