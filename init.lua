@@ -10,7 +10,7 @@ WhichKey = require('which-key')
 Snacks.setup(
 	{
 		bigfile = { enabled = true },
-		dashboard = { enabled = true },
+		dashboard = { enabled = false },
 		explorer = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
@@ -63,7 +63,7 @@ vim.keymap.set("n", "<leader>gP", function() Snacks.picker.gh_pr({ state = "all"
 vim.keymap.set("n", "<leader>sb", function() Snacks.picker.lines() end,{ desc = "Buffer Lines" })
 vim.keymap.set("n", "<leader>sB", function() Snacks.picker.grep_buffers() end,{ desc = "Grep Open Buffers" })
 vim.keymap.set("n", "<leader>sg", function() Snacks.picker.grep() end,{ desc = "Grep" })
-vim.keymap.set("n", "<leader>sw", function() Snacks.picker.grep_word() end,{ desc = "Visual selection or word", mode = { "n", "x" }} )
+vim.keymap.set({ "n", "x" }, "<leader>sw", function() Snacks.picker.grep_word() end,{ desc = "Visual selection or word",} )
 -- search
 vim.keymap.set("n", '<leader>s"', function() Snacks.picker.registers() end,{ desc = "Registers" })
 vim.keymap.set("n", '<leader>s/', function() Snacks.picker.search_history() end,{ desc = "Search History" })
@@ -104,13 +104,13 @@ vim.keymap.set("n", "<leader>S",  function() Snacks.scratch.select() end,{ desc 
 vim.keymap.set("n", "<leader>n",  function() Snacks.notifier.show_history() end,{ desc = "Notification History" })
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end,{ desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>cR", function() Snacks.rename.rename_file() end,{ desc = "Rename File" })
-vim.keymap.set("n", "<leader>gB", function() Snacks.gitbrowse() end,{ desc = "Git Browse", mode = { "n", "v" }} )
+vim.keymap.set({ "n", "v" }, "<leader>gB", function() Snacks.gitbrowse() end,{ desc = "Git Browse"  } )
 vim.keymap.set("n", "<leader>gg", function() Snacks.lazygit() end,{ desc = "Lazygit" })
 vim.keymap.set("n", "<leader>un", function() Snacks.notifier.hide() end,{ desc = "Dismiss All Notifications" })
 vim.keymap.set("n", "<c-/>",      function() Snacks.terminal() end,{ desc = "Toggle Terminal" })
 vim.keymap.set("n", "<c-_>",      function() Snacks.terminal() end,{ desc = "which_key_ignore" })
-vim.keymap.set("n", "]]",         function() Snacks.words.jump(vim.v.count1) end,{ desc = "Next Reference", mode = { "n", "t" }} )
-vim.keymap.set("n", "[[",         function() Snacks.words.jump(-vim.v.count1) end,{ desc = "Prev Reference", mode = { "n", "t" }} )
+vim.keymap.set({ "n", "t" }, "]]",         function() Snacks.words.jump(vim.v.count1) end,{ desc = "Next Reference"  } )
+vim.keymap.set({ "n", "t" }, "[[",         function() Snacks.words.jump(-vim.v.count1) end,{ desc = "Prev Reference"  } )
 vim.keymap.set("n",
 	"<leader>N", 
 	function()
