@@ -1,3 +1,18 @@
+-- WSL clipboard setup
+vim.g.clipboard = {
+  name = "WslClipboard",
+  copy = {
+    ["+"] = "clip.exe",
+    ["*"] = "clip.exe",
+  },
+  paste = {
+    ["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ["*"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 0,
+}
+vim.opt.clipboard:append({ "unnamedplus" })
+
 vim.o.number = true
 vim.o.relativenumber = true
 vim.g.mapleader = " "
@@ -148,3 +163,6 @@ vim.pack.add({'https://github.com/nvim-mini/mini.nvim'})
 MiniFiles = require('mini.files')
 MiniFiles.setup()
 vim.keymap.set("n", "<leader>fm", function() MiniFiles.open() end, {desc = "MiniFiles Open"})
+
+
+
