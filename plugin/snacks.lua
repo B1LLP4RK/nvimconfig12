@@ -96,7 +96,8 @@ vim.keymap.set("n", "<leader>z",  function() Snacks.zen() end,{ desc = "Toggle Z
 vim.keymap.set("n", "<leader>Z",  function() Snacks.zen.zoom() end,{ desc = "Toggle Zoom" })
 vim.keymap.set("n", "<leader>.",  function() Snacks.scratch() end,{ desc = "Toggle Scratch Buffer" })
 vim.keymap.set("n", "<leader>S",  function() Snacks.scratch.select() end,{ desc = "Select Scratch Buffer" })
-vim.keymap.set("n", "<leader>n",  function() Snacks.notifier.show_history() end,{ desc = "Notification History" })
+-- below keymap overlaps with another keymap
+-- vim.keymap.set("n", "<leader>n",  function() Snacks.notifier.show_history() end,{ desc = "Notification History" })
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end,{ desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>cR", function() Snacks.rename.rename_file() end,{ desc = "Rename File" })
 vim.keymap.set({ "n", "v" }, "<leader>gB", function() Snacks.gitbrowse() end,{ desc = "Git Browse"  } )
