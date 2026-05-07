@@ -2,9 +2,9 @@ vim.pack.add({
       {
         src = 'https://github.com/saghen/blink.cmp',
         -- Git branch, tag, or commit hash
-        version = '78336bc89ee5365633bcf754d93df01678b5c08f',
+        version = 'v1',
       }})
-Blink = require('blink')
+Blink = require('blink.cmp')
 Blink.setup(  
 	{
 		-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
