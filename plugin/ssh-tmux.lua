@@ -6,3 +6,9 @@
 
 vim.opt.clipboard:append("unnamedplus")
 vim.g.clipboard = "tmux"
+
+-- below settings are for valid color expression of nvim in tmux.
+-- add below to .tmux.conf
+-- set -g default-terminal "screen-256color"
+-- set-option -ga terminal-overrides ",xterm-256color:Tc"
+vim.opt.termguicolors = true
